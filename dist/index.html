@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101310">
+  <meta name="description" content="Nguyễn Cao Kỳ is a semiconductor IC design student working across RTL, FPGA acceleration, and ASIC physical design.">
+  <meta property="og:title" content="Nguyễn Cao Kỳ | Digital IC Design">
+  <meta property="og:description" content="Selected hardware projects in RTL, FPGA acceleration, and ASIC physical design.">
+  <title>Nguyễn Cao Kỳ | Digital IC Design</title>
+  <link rel="icon" href="assets/icon.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header shell">
+    <a class="brand" href="#home" aria-label="Nguyễn Cao Kỳ, home"><span class="brand-mark" aria-hidden="true">NK</span> <span>KỲ NGUYỄN<span class="brand-dot">.</span></span></a>
+    <span class="header-location mono">Ho Chi Minh City, Vietnam</span>
+    <a class="header-contact mono" href="#contact">Get in touch</a>
+  </header>
+
+  <main id="main">
+    <section class="hero shell" id="home" aria-labelledby="hero-title">
+      <canvas class="hero-circuit" id="hero-circuit" aria-hidden="true"></canvas>
+      <div class="hero-content">
+        <p class="eyebrow"><span></span> Digital IC design</p>
+        <h1 id="hero-title">Nguyễn<br><em>Cao Kỳ.</em></h1>
+        <p class="hero-role">From RTL to physical design.</p>
+        <p class="hero-description">I’m a semiconductor IC design student at FPT University, working on digital hardware from simulation and FPGA prototyping to ASIC sign-off.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#work">Explore my work</a>
+          <a class="button button-quiet" href="https://github.com/nguyen-ky2910" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+      <figure class="portrait-frame">
+        <div class="portrait-top mono"><span>Nguyễn Cao Kỳ</span><span aria-hidden="true">+ &nbsp; +</span></div>
+        <div class="portrait-window">
+          <img src="assets/portrait.webp" width="1125" height="1500" alt="Portrait of Nguyễn Cao Kỳ" fetchpriority="high">
+          <span class="portrait-cross portrait-cross-top" aria-hidden="true"></span>
+          <span class="portrait-cross portrait-cross-bottom" aria-hidden="true"></span>
+        </div>
+        <figcaption class="mono"><span>FPT University</span><span>HCMC campus</span></figcaption>
+      </figure>
+      <div class="hero-footer mono">
+        <span><i></i> RTL &amp; verification</span><span><i></i> FPGA acceleration</span><span><i></i> ASIC physical design</span>
+      </div>
+    </section>
+
+    <section class="section shell" id="work" aria-labelledby="work-title">
+      <div class="section-heading">
+        <div><p class="eyebrow"><span></span> Portfolio</p><h2 id="work-title">Selected work<span>.</span></h2></div>
+        <p>Three projects, from a five-stage CPU to a matrix accelerator implemented on FPGA and in SKY130.</p>
+      </div>
+      <article class="project featured">
+        <figure class="project-visual asic-visual">
+          <img src="assets/processing-element.webp" alt="Layer stack of a single GEMM32 processing element, from the research group’s 3D model" width="850" height="580" loading="lazy">
+          <figcaption class="mono">Processing element · 3D model</figcaption>
+        </figure>
+        <div class="project-body">
+          <p class="project-meta mono">ASIC physical design <span>Oct 2026</span></p>
+          <h3>GEMM32 ASIC</h3>
+          <p>Hierarchical SKY130 implementation of a 32×32 INT8 matrix accelerator, from RTL to a routed layout and sign-off checks.</p>
+          <dl class="project-metrics">
+            <div><dt>50 MHz</dt><dd>v1 sign-off · TT</dd></div>
+            <div><dt>112</dt><dd>row and SRAM macros</dd></div>
+            <div><dt>102.4</dt><dd>peak GOPS at 50 MHz</dd></div>
+          </dl>
+          <details class="project-details">
+            <summary>My contribution</summary>
+            <p>In a team of two, I ran and documented the hierarchical flow, automated preflight and sign-off evidence with Bash and Python, and checked gate-level results against RTL and Python for three matrix shapes. The v1 flow reported clean LVS, zero antenna violations and positive setup and hold slack at TT.</p>
+          </details>
+          <div class="project-links">
+            <a class="button button-primary" href="https://github.com/nguyen-ky2910/GEMM_ASIC_SKY130" target="_blank" rel="noopener">Repository</a>
+            <a class="button button-quiet" href="https://nguyen-ky2910.github.io/WEB_GEMM_ASIC_SKY130/" target="_blank" rel="noopener">Research site</a>
+          </div>
+        </div>
+      </article>
+
+      <div class="project-grid">
+        <article class="project">
+          <figure class="project-visual diagram-visual">
+            <canvas data-diagram="array" aria-hidden="true"></canvas>
+            <figcaption class="mono">Weight-stationary array · schematic</figcaption>
+          </figure>
+          <div class="project-body">
+            <p class="project-meta mono">FPGA acceleration <span>Aug 2026</span></p>
+            <h3>ShapeGEMM</h3>
+            <p>Signed-INT8 GEMM on the Kria KV260, integrated into a shape-aware GGML/llama.cpp offload path.</p>
+            <dl class="project-metrics">
+              <div><dt>100 MHz</dt><dd>FPGA clock</dd></div>
+              <div><dt>2.18–2.90×</dt><dd>prefill speedup on Qwen2.5-0.5B</dd></div>
+            </dl>
+            <details class="project-details">
+              <summary>My contribution</summary>
+              <p>In a team of four, I contributed to RTL and system integration, AXI4-Lite and DMA interfaces, and self-checking tests against a Python golden model. The offload path used the FPGA for selected prefill shapes and kept single-token decode on the CPU.</p>
+            </details>
+            <div class="project-links"><a class="button button-quiet" href="https://github.com/nguyen-ky2910/GEMM_32x32_KV260_AI_ACCELERATOR" target="_blank" rel="noopener">Repository</a></div>
+          </div>
+        </article>
+
+        <article class="project">
+          <figure class="project-visual diagram-visual">
+            <canvas data-diagram="pipeline" aria-hidden="true"></canvas>
+            <figcaption class="mono">Five-stage pipeline · schematic</figcaption>
+          </figure>
+          <div class="project-body">
+            <p class="project-meta mono">Processor RTL <span>Jan 2026</span></p>
+            <h3>RISC-V CPU</h3>
+            <p>A modular, five-stage 32-bit processor implementing a subset of RV32I in Verilog.</p>
+            <dl class="project-metrics">
+              <div><dt>5 stages</dt><dd>IF · ID · EX · MEM · WB</dd></div>
+              <div><dt>6</dt><dd>Vivado testbenches</dd></div>
+            </dl>
+            <details class="project-details">
+              <summary>My contribution</summary>
+              <p>I designed and integrated the pipeline, register file and MEM/WB-to-EX forwarding, then verified each stage and the integrated CPU. I documented load-use and control hazard behavior to guide future interlock and flush support.</p>
+            </details>
+            <div class="project-links"><a class="button button-quiet" href="https://github.com/nguyen-ky2910/RISC_V_CPU" target="_blank" rel="noopener">Repository</a></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section shell" id="journey" aria-labelledby="journey-title">
+      <div class="section-heading">
+        <div><p class="eyebrow"><span></span> About me</p><h2 id="journey-title">My journey<span>.</span></h2></div>
+        <p>I like following a hardware problem across abstraction levels, from a simulation waveform to a post-route timing report.</p>
+      </div>
+      <div class="journey-grid">
+        <ol class="timeline">
+          <li><time class="mono">2026</time><h3>Research and competitions</h3><p>Second prize at the ResFes campus round for ShapeGEMM. Semifinalist at the 3rd IC Design for Smart Cities Competition with GEMM32 ASIC.</p></li>
+          <li><time class="mono">Spring 2026</time><h3>Vice President, IC Design Club</h3><p>Co-led the club and organized sessions on digital logic, Verilog and FPGA design. I also joined the 9.5AI club in March 2026.</p></li>
+          <li><time class="mono">Sep 2024 – Present</time><h3>FPT University, HCMC</h3><p>B.Eng. in Semiconductor IC Design. GPA 9.28/10, 100% entrance scholarship, and Top 100 Student Achievement Awards for three consecutive semesters.</p></li>
+        </ol>
+
+        <div class="gallery" aria-label="Photos from my journey">
+          <figure class="gallery-slide"><img src="assets/resfes.webp" width="1140" height="760" loading="lazy" alt="Team on stage receiving a second-prize award"><figcaption>ResFes campus round · Second prize</figcaption></figure>
+          <figure class="gallery-slide" hidden><img src="assets/honors.webp" width="1140" height="760" loading="lazy" alt="Nguyễn Cao Kỳ wearing an honors stole on stage"><figcaption>On stage at a student recognition ceremony</figcaption></figure>
+          <figure class="gallery-slide" hidden><img src="assets/achievement.webp" width="820" height="1093" loading="lazy" alt="Students by a Top 100 Student Achievement Awards display"><figcaption>Top 100 Student Achievement Awards</figcaption></figure>
+          <figure class="gallery-slide" hidden><img src="assets/community.webp" width="1140" height="759" loading="lazy" alt="Nguyễn Cao Kỳ with fellow students at a campus event"><figcaption>With classmates at a campus event</figcaption></figure>
+          <div class="gallery-controls" hidden>
+            <button type="button" data-gallery-step="-1" aria-label="Previous photo">Prev</button>
+            <p class="mono" id="gallery-count" aria-live="polite">1 / 4</p>
+            <button type="button" data-gallery-step="1" aria-label="Next photo">Next</button>
+          </div>
+        </div>
+      </div>
+
+      <article class="publication">
+        <p class="eyebrow"><span></span> Research</p>
+        <div>
+          <h3>ShapeGEMM: Integrating an INT8 FPGA GEMM Accelerator into llama.cpp with a Shape-Aware Offloading Policy</h3>
+          <p>EAI FISAT 2026 · Accepted, to appear · Equal-contribution co-author</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="section shell" id="toolkit" aria-labelledby="toolkit-title">
+      <div class="section-heading">
+        <div><p class="eyebrow"><span></span> Technical skills</p><h2 id="toolkit-title">The toolkit<span>.</span></h2></div>
+        <p>Tools I use to design, simulate, implement and check digital hardware.</p>
+      </div>
+      <div class="toolkit-grid">
+        <article class="toolkit-card"><p class="toolkit-glyph mono" aria-hidden="true">0x</p><h3>RTL &amp; Verification</h3><p>Verilog, SystemVerilog, ModelSim, Icarus Verilog, self-checking testbenches and Python golden models.</p></article>
+        <article class="toolkit-card"><p class="toolkit-glyph mono" aria-hidden="true">[ ]</p><h3>FPGA &amp; Interfaces</h3><p>Vivado, Kria KV260, AXI4-Lite, AXI4-Stream and DMA integration.</p></article>
+        <article class="toolkit-card"><p class="toolkit-glyph mono" aria-hidden="true">::</p><h3>ASIC &amp; Sign-off</h3><p>SKY130, OpenLane, OpenROAD, Yosys, OpenSTA, Magic, Netgen, KLayout and OpenRAM.</p></article>
+        <article class="toolkit-card"><p class="toolkit-glyph mono" aria-hidden="true">&gt;_</p><h3>Flow Automation</h3><p>Python, Tcl, Bash, Linux and Git. Currently studying Innovus, ICC2 and PrimeTime.</p></article>
+      </div>
+    </section>
+
+    <section class="section shell" id="lab" aria-labelledby="lab-title">
+      <div class="section-heading">
+        <div><p class="eyebrow"><span></span> Interactive playground</p><h2 id="lab-title">Signal lab<span>.</span></h2></div>
+        <p>Try a D flip-flop. Set the data input and pulse the clock to see Q capture D on the rising edge.</p>
+      </div>
+      <div class="lab-panel">
+        <div class="lab-header">
+          <h3 class="mono">D flip-flop</h3>
+          <div class="lab-controls" hidden>
+            <button type="button" data-lab-input aria-pressed="false" aria-label="Toggle data input">D = 0</button>
+            <button type="button" data-lab-clock>Pulse clock</button>
+            <button type="button" data-lab-reset>Reset</button>
+          </div>
+        </div>
+        <div class="scope" aria-label="Waveform history for CLK, D and Q">
+          <div class="scope-labels mono" aria-hidden="true"><span>CLK</span><span>D</span><span>Q</span></div>
+          <canvas id="waveform" aria-hidden="true"></canvas>
+        </div>
+        <p class="lab-status mono" role="status">CLK = 0 · D = 0 · Q = 0</p>
+        <noscript><p>Enable JavaScript to use the signal lab.</p></noscript>
+      </div>
+    </section>
+
+    <section class="section shell contact" id="contact" aria-labelledby="contact-title">
+      <div class="contact-body">
+        <p class="eyebrow"><span></span> Contact</p>
+        <h2 id="contact-title">Let’s connect<span>.</span></h2>
+        <p>I’m interested in opportunities to work on RTL design, FPGA acceleration and ASIC implementation.</p>
+        <div class="contact-links">
+          <a class="button button-primary" href="mailto:nguyenky2k6@gmail.com">Email me</a>
+          <a class="button button-quiet" href="https://www.linkedin.com/in/kynguyen2910/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="button button-quiet" href="https://github.com/nguyen-ky2910" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer shell mono"><span>Nguyễn Cao Kỳ</span><span>Digital IC Design · Ho Chi Minh City</span></footer>
+
+  <nav class="dock mono" aria-label="Section navigation">
+    <a href="#home" aria-current="location">Home</a>
+    <a href="#work">Work</a>
+    <a href="#journey">Journey</a>
+    <a href="#toolkit">Skills</a>
+    <a href="#lab">Lab</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</body>
+</html>
